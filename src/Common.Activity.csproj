@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.2.0" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
