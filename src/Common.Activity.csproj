@@ -1,10 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Crequency</Authors>
+    <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.2.0" />
+  </ItemGroup>
 
 </Project>
