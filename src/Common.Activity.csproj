@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.0" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10" />
   </ItemGroup>
 
 </Project>
