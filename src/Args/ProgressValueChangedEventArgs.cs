@@ -1,4 +1,4 @@
-namespace Common.Activity.Args;
+﻿namespace Common.Activity.Args;
 
 public class ProgressValueChangedEventArgs
 {
