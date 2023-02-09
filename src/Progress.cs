@@ -1,4 +1,4 @@
-using Common.Activity.Args;
+﻿using Common.Activity.Args;
 
 namespace Common.Activity;
 
