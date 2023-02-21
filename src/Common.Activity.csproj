@@ -1,22 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>10</LangVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Crequency</Authors>
-    <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <AssemblyVersion>$(Version)</AssemblyVersion>
-    <FileVersion>$(Version)</FileVersion>
-    <Version>1.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2005-07-16"))).TotalDays).$([System.Math]::Floor($([System.DateTime]::UtcNow.TimeOfDay.TotalMinutes)))</Version>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Crequency</Authors>
+        <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>1.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2005-07-16"))).TotalDays).$([System.Math]::Floor($([System.DateTime]::UtcNow.TimeOfDay.TotalMinutes)))</Version>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10" />
+    </ItemGroup>
 
 </Project>

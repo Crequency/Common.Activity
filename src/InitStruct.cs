@@ -1,11 +1,12 @@
-using System;
+﻿namespace Common.Activity;
 
-namespace Common.Activity
+public class InitStruct
 {
-    public class InitStruct
+    public InitStruct()
     {
-        public string Name { get; set; }
 
-        
     }
+
+    public string? Name { get; set; }
+
 }
