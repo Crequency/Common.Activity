@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Activity", "Common.Activity.csproj", "{037D2F81-3919-4892-A583-C4BFA75025BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Activity", "Common.Activity\Common.Activity.csproj", "{037D2F81-3919-4892-A583-C4BFA75025BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

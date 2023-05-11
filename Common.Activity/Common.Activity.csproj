@@ -21,4 +21,24 @@
         <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AvaloniaXaml Remove="Interfaces\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Interfaces\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Interfaces\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaResource Remove="Interfaces\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Interfaces\**" />
+    </ItemGroup>
+
 </Project>

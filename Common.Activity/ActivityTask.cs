@@ -1,12 +1,14 @@
 ﻿namespace Common.Activity;
 
-public class Task
+public class ActivityTask
 {
     public string? Name { get; set; }
 
     public Progress? Progress { get; set; }
 
-    public List<Task>? SubTasks { get; set; }
+    public List<ActivityTask>? SubTasks { get; set; }
+    
+    public ActivityTask? ParentTask { get; set; }
 
     public Dictionary<int, string>? Contents { get; set; }
 
@@ -14,5 +16,5 @@ public class Task
 
     public Dictionary<int, string>? Errors { get; set; }
 
-    public Result? Result { get; set; }
+    public ActivityTaskStatus? Result { get; set; }
 }
