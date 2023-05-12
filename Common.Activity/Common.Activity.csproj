@@ -5,15 +5,21 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>10</LangVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Authors>Crequency</Authors>
-        <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageTags>library;loggin;activity;dotnet;workflows;tasks</PackageTags>
+        <Authors>Dynesshely</Authors>
+        <Company>Crequency</Company>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>library;loggin;activity;dotnet;workflows;tasks</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
         <Version>
@@ -22,27 +28,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <AvaloniaXaml Remove="Interfaces\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="Interfaces\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Remove="Interfaces\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <AvaloniaResource Remove="Interfaces\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Remove="Interfaces\**" />
+        <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10"/>
     </ItemGroup>
 
     <ItemGroup>
