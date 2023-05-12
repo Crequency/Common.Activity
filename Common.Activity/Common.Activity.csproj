@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Dynesshely</Authors>
+        <Company>Crequency</Company>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/Crequency/Common.Activity</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Crequency/Common.Activity</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>library;loggin;activity;dotnet;workflows;tasks</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <Version>
+            1.1.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2005-07-16"))).TotalDays).$([System.Math]::Floor($([System.DateTime]::UtcNow.TimeOfDay.TotalMinutes)))
+        </Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>
