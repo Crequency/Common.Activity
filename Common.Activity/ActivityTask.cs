@@ -1,20 +1,68 @@
-﻿namespace Common.Activity;
+﻿using System.Text.Json.Serialization;
+
+namespace Common.Activity;
 
 public class ActivityTask
 {
+    public ActivityTask()
+    {
+        _controller.SetTask(this);
+    }
+
+    private ActivityTaskController _controller = new();
+
     public string? Name { get; set; }
 
     public Progress? Progress { get; set; }
 
-    public List<ActivityTask>? SubTasks { get; set; }
-    
-    public ActivityTask? ParentTask { get; set; }
+    public bool IsLoopTask { get; set; } = false;
 
-    public Dictionary<int, string>? Contents { get; set; }
+    [JsonIgnore] public Action<ActivityTaskController>? Action { get; set; }
 
-    public Dictionary<int, string>? Warnings { get; set; }
+    public List<ActivityTask> SubTasks { get; } = new();
 
-    public Dictionary<int, string>? Errors { get; set; }
+    [JsonIgnore] public ActivityTask? ParentTask { get; internal set; }
 
-    public ActivityTaskStatus? Result { get; set; }
+    public Dictionary<int, string> Contents { get; } = new();
+
+    public Dictionary<int, string> Warnings { get; } = new();
+
+    public Dictionary<int, string> Errors { get; } = new();
+
+    public ActivityTaskStatus? Status { get; private set; }
+
+    public dynamic? Result { get; set; }
+
+    [JsonIgnore] public Exception? Exception { get; private set; }
+
+    public ActivityTask AppendTask(ActivityTask task)
+    {
+        SubTasks.Add(task);
+        task.ParentTask = this;
+
+        return this;
+    }
+
+    public ActivityTask Execute(bool executeSubTasks = true)
+    {
+        try
+        {
+            Action?.Invoke(_controller);
+
+            Status = ActivityTaskStatus.Success;
+        }
+        catch (Exception e)
+        {
+            Exception = e;
+
+            Status = ActivityTaskStatus.Errored;
+        }
+
+        if (!executeSubTasks) return this;
+
+        foreach (var task in SubTasks)
+            task.Execute(executeSubTasks);
+
+        return this;
+    }
 }
