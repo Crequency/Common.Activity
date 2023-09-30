@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace Common.Activity;
+﻿namespace Common.Activity;
 
 public class Progress
 {
