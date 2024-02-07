@@ -9,7 +9,7 @@ public class ActivityTask
         _controller.SetTask(this);
     }
 
-    private ActivityTaskController _controller = new();
+    private readonly ActivityTaskController _controller = new();
 
     public string? Name { get; set; }
 
