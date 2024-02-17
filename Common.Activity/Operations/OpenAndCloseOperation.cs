@@ -1,11 +1,7 @@
-namespace Common.Activity.Operations;
+﻿namespace Common.Activity.Operations;
 
-public class OpenAndCloseOperation
+public class OpenAndCloseOperation : BaseOperation
 {
-    public string? Subject { get; set; }
-    
-    public DateTime? ExecuteTime { get; set; }
-
     public OpenAndCloseOperationTypes? Operation { get; set; }
 }
 

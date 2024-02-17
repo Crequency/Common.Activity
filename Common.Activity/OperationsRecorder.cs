@@ -1,4 +1,4 @@
-using Common.Activity.Operations;
+﻿using Common.Activity.Operations;
 
 namespace Common.Activity;
 

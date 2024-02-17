@@ -1,13 +1,9 @@
-namespace Common.Activity.Operations;
+﻿namespace Common.Activity.Operations;
 
-public class AssignersRelatedOperation
+public class AssignersRelatedOperation : BaseOperation
 {
-    public string? Subject { get; set; }
-    
-    public DateTime? ExecuteTime { get; set; }
-    
     public AssignersRelatedOperationTypes? Operation { get; set; }
-    
+
     public List<string>? Targets { get; set; }
 }
 

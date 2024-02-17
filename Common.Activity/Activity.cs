@@ -1,5 +1,6 @@
 ﻿using Common.Activity.Operations;
 using Material.Icons;
+using System.Collections.ObjectModel;
 
 namespace Common.Activity;
 
@@ -25,7 +26,7 @@ public class Activity
 
             var assigners = new List<string>();
 
-            foreach (var assignerOperation in this.Operations.AssignersRelatedOperations)
+            foreach (var assignerOperation in Operations.AssignersRelatedOperations)
                 switch (assignerOperation.Operation)
                 {
                     case AssignersRelatedOperationTypes.Add:
@@ -53,7 +54,7 @@ public class Activity
 
             var labels = new List<string>();
 
-            foreach (var labelOperation in this.Operations.LabelsRelatedOperations)
+            foreach (var labelOperation in Operations.LabelsRelatedOperations)
                 switch (labelOperation.Operation)
                 {
                     case LabelsRelatedOperationTypes.Label:
@@ -73,7 +74,7 @@ public class Activity
         }
     }
 
-    public List<ActivityTask> Tasks { get; } = new();
+    public ObservableCollection<ActivityTask> Tasks { get; } = new();
 
     public OperationsRecorder Operations { get; } = new();
 

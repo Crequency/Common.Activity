@@ -1,11 +1,7 @@
-namespace Common.Activity.Operations;
+﻿namespace Common.Activity.Operations;
 
-public class LabelsRelatedOperation
+public class LabelsRelatedOperation : BaseOperation
 {
-    public string? Subject { get; set; }
-
-    public DateTime? ExecuteTime { get; set; }
-
     public LabelsRelatedOperationTypes? Operation { get; set; }
 
     public List<string>? Targets { get; set; }

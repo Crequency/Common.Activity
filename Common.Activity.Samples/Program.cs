@@ -4,14 +4,14 @@ using Common.Activity;
 Console.WriteLine("Common.Activity.Samples");
 
 var activity = new Activity()
-    {
-        Id = 1,
-        Name = "Activity_Calculate",
-        Author = "Samples",
-        IconKind = null,
-        Title = null,
-        Category = null,
-    }
+{
+    Id = 1,
+    Name = "Activity_Calculate",
+    Author = "Samples",
+    IconKind = null,
+    Title = null,
+    Category = null,
+}
     .Open("samples")
     .Assign("samples", "samples")
     .Assign("samples", "computer")
@@ -19,23 +19,23 @@ var activity = new Activity()
     .Label("samples", "running")
     .AppendTask(
         new ActivityTask()
+        {
+            Action = controller =>
             {
-                Action = controller =>
+                controller.Log($"1 + 0 = {1 + 0}");
+                controller.Result = 1 + 0;
+                controller.Progress = new Progress(ProgressType.Tasks)
                 {
-                    controller.LogContents(0, $"1 + 0 = {1 + 0}");
-                    controller.Result = 1 + 0;
-                    controller.Progress = new Progress(ProgressType.Tasks)
-                    {
-                        Value = new Tuple<int, int>(1, 1)
-                    };
-                },
-            }
+                    Value = new Tuple<int, int>(1, 1)
+                };
+            },
+        }
             .AppendTask(
                 new ActivityTask()
                 {
                     Action = controller =>
                     {
-                        controller.LogContents(0, $"1 + 1 = {1 + 1}");
+                        controller.Log($"1 + 1 = {1 + 1}");
                         controller.Result = 1 + 1;
                         controller.Progress = new Progress(ProgressType.Tasks)
                         {
@@ -49,7 +49,7 @@ var activity = new Activity()
                 {
                     Action = controller =>
                     {
-                        controller.LogContents(0, $"1 + 2 = {1 + 2}");
+                        controller.Log($"1 + 2 = {1 + 2}");
                         controller.Result = 1 + 2;
                         controller.Progress = new Progress(ProgressType.Tasks)
                         {

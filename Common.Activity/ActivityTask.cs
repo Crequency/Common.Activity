@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.ObjectModel;
+using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Common.Activity;
 
@@ -19,17 +21,27 @@ public class ActivityTask
 
     [JsonIgnore] public Action<ActivityTaskController>? Action { get; set; }
 
-    public List<ActivityTask> SubTasks { get; } = new();
+    public ObservableCollection<ActivityTask> SubTasks { get; } = new();
 
     [JsonIgnore] public ActivityTask? ParentTask { get; internal set; }
 
-    public Dictionary<int, string> Contents { get; } = new();
+    public ObservableCollection<ActivityTaskResultLine> ActivityTaskResultLines { get; } = new();
 
-    public Dictionary<int, string> Warnings { get; } = new();
+    public string ActivityTaskResult
+    {
+        get
+        {
+            var sb = new StringBuilder();
 
-    public Dictionary<int, string> Errors { get; } = new();
+            ActivityTaskResultLines.Select(x => x.Content)
+                .ToList()
+                .ForEach(x => sb.AppendLine(x));
 
-    public ActivityTaskStatus? Status { get; private set; }
+            return sb.ToString();
+        }
+    }
+
+    public ActivityTaskStatus? Status { get; private set; } = ActivityTaskStatus.Pending;
 
     public dynamic? Result { get; set; }
 
@@ -38,6 +50,7 @@ public class ActivityTask
     public ActivityTask AppendTask(ActivityTask task)
     {
         SubTasks.Add(task);
+
         task.ParentTask = this;
 
         return this;
@@ -47,6 +60,8 @@ public class ActivityTask
     {
         try
         {
+            Status = ActivityTaskStatus.Running;
+
             Action?.Invoke(_controller);
 
             Status = ActivityTaskStatus.Success;

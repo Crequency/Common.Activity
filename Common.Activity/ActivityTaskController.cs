@@ -1,8 +1,10 @@
-namespace Common.Activity;
+﻿namespace Common.Activity;
 
 public class ActivityTaskController
 {
     private ActivityTask? _task = null;
+
+    private int index = 1;
 
     public ActivityTaskController SetTask(ActivityTask task)
     {
@@ -11,23 +13,38 @@ public class ActivityTaskController
         return this;
     }
 
-    public ActivityTaskController LogContents(int index, string content)
+    public ActivityTaskController Log(string content)
     {
-        _task?.Contents.Add(index, content);
+        _task?.ActivityTaskResultLines.Add(new()
+        {
+            Index = index++,
+            Content = content,
+            Type = ActivityTaskResultLineType.Content,
+        });
 
         return this;
     }
 
-    public ActivityTaskController LogWarnings(int index, string content)
+    public ActivityTaskController Warn(string content)
     {
-        _task?.Warnings.Add(index, content);
+        _task?.ActivityTaskResultLines.Add(new()
+        {
+            Index = index++,
+            Content = content,
+            Type = ActivityTaskResultLineType.Warning,
+        });
 
         return this;
     }
 
-    public ActivityTaskController LogErrors(int index, string content)
+    public ActivityTaskController Error(string content)
     {
-        _task?.Errors.Add(index, content);
+        _task?.ActivityTaskResultLines.Add(new()
+        {
+            Index = index++,
+            Content = content,
+            Type = ActivityTaskResultLineType.Error,
+        });
 
         return this;
     }
