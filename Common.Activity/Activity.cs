@@ -1,6 +1,6 @@
-﻿using Common.Activity.Operations;
+﻿using System.Collections.ObjectModel;
+using Common.Activity.Operations;
 using Material.Icons;
-using System.Collections.ObjectModel;
 
 namespace Common.Activity;
 
